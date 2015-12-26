@@ -1,0 +1,39 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+   <body>
+      <form id="file_upload_form" action="http://localhost:9999/myaction" method="post" enctype="multipart/form-data">
+         <fieldset>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" />
+            <br />
+            <label for="aifile">AI file:</label>
+            <input type="file" id="aifile" name="aifile" />
+            <br />
+            <input type="submit" value="Create Profile" />
+         </fieldset>
+      </form>
+   </body>
+
+<script>
+// Attach a submit handler to the form
+$( "#file_upload_form" ).submit(function uploadFile( event ) {
+  event.preventDefault(); //stop submit normally
+  var $form = $( this ),
+      url = $form.attr( "action" );
+ 
+  $.ajax({
+           type: "POST",
+           url: "http://localhost:9999/myaction",
+           data: $("#file_upload_form").serialize(), 
+           success: function(data)
+           {
+			   if(data == false){
+					setTimeout(uploadFile(event), 3000);
+			   }
+           }
+         });
+});
+</script>
+</html>

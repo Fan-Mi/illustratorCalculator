@@ -1,0 +1,15 @@
+*.idlk
+
+/.idea
+/node_modules
+/tests/node_modules
+/tests/test/log
+/tests/test/results
+/tests/config.js
+/tests/npm-debug.log
+/tests/.npmignore
+
+[Ll]ogs/
+
+public-scripts/SampleApp/log
+public-scripts/CropLinksApp/log

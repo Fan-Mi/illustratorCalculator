@@ -1,0 +1,4 @@
+for(var i=0; i<5000; i++){
+	$.writeln(i);
+}
+area = 8888;
